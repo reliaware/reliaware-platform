@@ -7,4 +7,5 @@
 project(reliaware-modules)
 
 add_subdirectory(command)
+add_subdirectory(network)
 add_subdirectory(service)

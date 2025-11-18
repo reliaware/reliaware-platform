@@ -1,0 +1,12 @@
+#
+# ReliaWare SDS platform
+# Copyright (c) 2025, ReliaWare
+#
+# SPDX-License-Identifier: BSD-3-Clause
+#
+project(reliaware-modules-network)
+
+add_library(reliaware-network SHARED)
+target_include_directories(reliaware-network PUBLIC include)
+target_sources(reliaware-network PRIVATE
+    src/socket.cxx)
