@@ -4,7 +4,4 @@
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
-project(reliaware-modules)
-
-add_subdirectory(command)
-add_subdirectory(service)
+project(reliaware-services-network)

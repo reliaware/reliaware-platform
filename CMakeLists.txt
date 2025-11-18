@@ -1,3 +1,9 @@
+#
+# ReliaWare SDS platform
+# Copyright (c) 2025, ReliaWare
+#
+# SPDX-License-Identifier: BSD-3-Clause
+#
 cmake_minimum_required(VERSION 3.31)
 
 project(reliaware VERSION 0.1.0 LANGUAGES C CXX)
