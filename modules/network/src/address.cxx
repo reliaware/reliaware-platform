@@ -33,6 +33,11 @@ local_address::local_address(const sockaddr_un *addr)
 {
 }
 
+local_address::operator std::string() const
+{
+    return std::string(m_value.sun_path);
+}
+
 ipv4_address::ipv4_address(const ipv4_address& addr)
     : address_base(addr)
 {
@@ -54,6 +59,13 @@ ipv4_address::ipv4_address(const sockaddr_in *addr)
 {
 }
 
+ipv4_address::operator std::string() const
+{
+    char str[INET_ADDRSTRLEN];
+    ::inet_ntop(AF_INET, &m_value, str, sizeof(str));
+    return std::string(str);
+}
+
 ipv6_address::ipv6_address(const ipv6_address& addr)
     : address_base(addr)
 {
@@ -73,4 +85,11 @@ ipv6_address::ipv6_address(in6_addr_t addr, in_port_t port)
 ipv6_address::ipv6_address(const sockaddr_in6 *addr)
     : address_base(addr)
 {
+}
+
+ipv6_address::operator std::string() const
+{
+    char str[INET6_ADDRSTRLEN];
+    ::inet_ntop(AF_INET6, &m_value, str, sizeof(str));
+    return std::string(str);
 }
