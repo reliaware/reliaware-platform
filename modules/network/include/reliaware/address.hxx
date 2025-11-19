@@ -19,6 +19,8 @@
 #ifdef __linux__
 #   include <linux/in6.h>
 #endif
+#include <arpa/inet.h>
+
 #include <string>
 #include <cstring>
 
@@ -33,6 +35,8 @@ namespace reliaware
     public:
         virtual int family() const = 0;
         virtual const sockaddr *value() const = 0;
+
+        virtual explicit operator std::string() const = 0;
     };
 
     template<class TAddress>
@@ -68,6 +72,10 @@ namespace reliaware
         local_address(const local_address& addr);
         local_address(const std::string& path);
         local_address(const sockaddr_un *addr);
+
+        virtual explicit operator std::string() const {
+            return std::string(m_value.sun_path);
+        }
     };
 
     class ipv4_address : public address_base<struct sockaddr_in>
@@ -78,6 +86,12 @@ namespace reliaware
         ipv4_address(const ipv4_address& addr);
         ipv4_address(in_addr_t addr, in_port_t port);
         ipv4_address(const sockaddr_in *addr);
+
+        virtual explicit operator std::string() const {
+            char str[INET_ADDRSTRLEN];
+            ::inet_ntop(AF_INET, &m_value, str, sizeof(str));
+            return std::string(str);
+        }
     };
 
     class ipv6_address : public address_base<struct sockaddr_in6>
@@ -88,6 +102,12 @@ namespace reliaware
         ipv6_address(const ipv6_address& addr);
         ipv6_address(in6_addr_t addr, in_port_t port);
         ipv6_address(const sockaddr_in6 *addr);
+
+        virtual explicit operator std::string() const {
+            char str[INET6_ADDRSTRLEN];
+            ::inet_ntop(AF_INET6, &m_value, str, sizeof(str));
+            return std::string(str);
+        }
     };
 };
 
