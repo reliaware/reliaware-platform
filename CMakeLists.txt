@@ -24,6 +24,7 @@ elseif("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
     add_compile_definitions(-O2)
 endif()
 
+add_subdirectory(compat)
 add_subdirectory(modules)
 add_subdirectory(services)
 add_subdirectory(tools)
