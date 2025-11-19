@@ -24,3 +24,15 @@ socket::~socket()
     if (m_fd != -1)
         ::close(m_fd);
 }
+
+void socket::bind(const address& addr)
+{
+    if (::bind(m_fd, addr.value(), addr.length()) < 0)
+        throw std::system_error(errno, std::generic_category());
+}
+
+void socket::listen(int backlog)
+{
+    if (::listen(m_fd, backlog) < 0)
+        throw std::system_error(errno, std::generic_category());
+}

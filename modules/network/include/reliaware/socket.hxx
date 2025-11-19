@@ -22,6 +22,9 @@ namespace reliaware
         socket() = delete;
         socket(int domain, int type, int protocol);
         virtual ~socket();
+
+        void bind(const address& addr);
+        void listen(int backlog);
     };
 };
 

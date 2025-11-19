@@ -35,6 +35,7 @@ namespace reliaware
     public:
         virtual int family() const = 0;
         virtual const sockaddr *value() const = 0;
+        virtual socklen_t length() const = 0;
 
         virtual explicit operator std::string() const = 0;
     };
@@ -61,6 +62,10 @@ namespace reliaware
 
         virtual const sockaddr *value() const {
             return reinterpret_cast<const sockaddr *>(&m_value);
+        }
+
+        virtual socklen_t length() const {
+            return sizeof(m_value);
         }
     };
 
