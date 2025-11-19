@@ -21,8 +21,8 @@ namespace reliaware
     class address
     {
     public:
-        virtual int family() = 0;
-        virtual const sockaddr *value() = 0;
+        virtual int family() const = 0;
+        virtual const sockaddr *value() const = 0;
     };
 
     template<class _Address>
@@ -41,18 +41,20 @@ namespace reliaware
         }
 
     public:
-        virtual int family() {
+        virtual int family() const {
             return value()->sa_family;
         }
 
-        virtual const sockaddr *value() {
-            return reinterpret_cast<sockaddr *>(&m_value);
+        virtual const sockaddr *value() const {
+            return reinterpret_cast<const sockaddr *>(&m_value);
         }
     };
 
     class local_address : public address_base<struct sockaddr_un>
     {
     public:
+        local_address() = delete;
+
         local_address(const local_address& addr);
         local_address(const std::string& path);
         local_address(const sockaddr_un *addr);
@@ -61,6 +63,8 @@ namespace reliaware
     class ipv4_address : public address_base<struct sockaddr_in>
     {
     public:
+        ipv4_address() = delete;
+
         ipv4_address(const ipv4_address& addr);
         ipv4_address(in_addr_t addr, in_port_t port);
         ipv4_address(const sockaddr_in *addr);
@@ -69,6 +73,8 @@ namespace reliaware
     class ipv6_address : public address_base<struct sockaddr_in6>
     {
     public:
+        ipv6_address() = delete;
+
         ipv6_address(const ipv6_address& addr);
         ipv6_address(in6_addr_t addr, in_port_t port);
         ipv6_address(const sockaddr_in6 *addr);

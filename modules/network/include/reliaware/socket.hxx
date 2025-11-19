@@ -9,6 +9,8 @@
 
 #pragma once
 
+#include <reliaware/address.hxx>
+
 namespace reliaware
 {
     class socket
@@ -17,6 +19,7 @@ namespace reliaware
         int m_fd;
 
     public:
+        socket() = delete;
         socket(int domain, int type, int protocol);
         virtual ~socket();
     };
