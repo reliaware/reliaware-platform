@@ -21,6 +21,12 @@ int listener::check_type(int type)
 listener::listener(const address& addr, int type, int protocol)
     : socket(addr.family(), check_type(type), protocol)
 {
+    try {
+        bind(addr);
+    } catch (std::exception& e) {
+        socket::~socket();
+        throw e;
+    }
 }
 
 listener::~listener()
