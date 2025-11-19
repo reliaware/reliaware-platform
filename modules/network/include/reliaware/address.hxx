@@ -25,18 +25,18 @@ namespace reliaware
         virtual const sockaddr *value() const = 0;
     };
 
-    template<class _Address>
+    template<class TAddress>
     class address_base : public address
     {
     protected:
-        _Address m_value;
+        TAddress m_value;
 
     protected:
         address_base() {
             std::memset(&m_value, 0, sizeof(m_value));
         }
 
-        address_base(const _Address *addr) {
+        address_base(const TAddress *addr) {
             std::memcpy(&m_value, addr, sizeof(m_value));
         }
 
