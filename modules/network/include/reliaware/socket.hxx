@@ -15,7 +15,7 @@ namespace reliaware
 {
     class socket
     {
-    private:
+    protected:
         int m_fd;
 
     public:
@@ -24,7 +24,6 @@ namespace reliaware
         virtual ~socket();
 
         void bind(const address& addr);
-        void listen(int backlog);
     };
 };
 

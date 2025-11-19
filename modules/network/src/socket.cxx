@@ -15,7 +15,7 @@ using namespace reliaware;
 socket::socket(int domain, int type, int protocol)
     : m_fd(-1)
 {
-    if ((m_fd = ::socket(domain, type, protocol)) == -1)
+    if ((m_fd = ::socket(domain, type, protocol)) < 0)
         throw std::system_error(errno, std::generic_category());
 }
 
@@ -28,11 +28,5 @@ socket::~socket()
 void socket::bind(const address& addr)
 {
     if (::bind(m_fd, addr.value(), addr.length()) < 0)
-        throw std::system_error(errno, std::generic_category());
-}
-
-void socket::listen(int backlog)
-{
-    if (::listen(m_fd, backlog) < 0)
         throw std::system_error(errno, std::generic_category());
 }

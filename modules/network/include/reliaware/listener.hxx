@@ -15,10 +15,15 @@ namespace reliaware
 {
     class listener : protected socket
     {
+    private:
+        static int check_type(int type);
+
     public:
         listener() = delete;
         listener(const address& addr, int type, int protocol);
         virtual ~listener();
+
+        void listen(int backlog = SOMAXCONN);
     };
 };
 

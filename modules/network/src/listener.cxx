@@ -4,15 +4,31 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 //
+#include <system_error>
+
 #include <reliaware/listener.hxx>
 
 using namespace reliaware;
 
+int listener::check_type(int type)
+{
+    if ((type != SOCK_STREAM) && (type != SOCK_SEQPACKET))
+        throw std::invalid_argument("type");
+
+    return type;
+}
+
 listener::listener(const address& addr, int type, int protocol)
-    : socket(addr.family(), type, protocol)
+    : socket(addr.family(), check_type(type), protocol)
 {
 }
 
 listener::~listener()
 {
+}
+
+void listener::listen(int backlog)
+{
+    if (::listen(m_fd, backlog) < 0)
+        throw std::system_error(errno, std::generic_category());
 }
