@@ -4,8 +4,8 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 //
-#ifndef RELIAWARE_ADDRESS_HXX
-#define RELIAWARE_ADDRESS_HXX
+#ifndef RELIAWARE_NETWORK_ADDRESS_HXX
+#define RELIAWARE_NETWORK_ADDRESS_HXX
 
 #pragma once
 
@@ -24,7 +24,7 @@
 #include <string>
 #include <cstring>
 
-namespace reliaware
+namespace reliaware::network
 {
 #ifdef __linux__
     using in6_addr_t = struct in6_addr;
@@ -106,4 +106,4 @@ namespace reliaware
     };
 };
 
-#endif // !RELIAWARE_ADDRESS_HXX
+#endif // !RELIAWARE_NETWORK_ADDRESS_HXX

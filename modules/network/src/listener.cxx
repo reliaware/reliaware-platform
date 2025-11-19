@@ -6,9 +6,9 @@
 //
 #include <system_error>
 
-#include <reliaware/listener.hxx>
+#include <reliaware/network/listener.hxx>
 
-using namespace reliaware;
+using namespace reliaware::network;
 
 int listener::check_type(int type)
 {

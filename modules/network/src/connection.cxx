@@ -4,6 +4,6 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 //
-#include <reliaware/connection.hxx>
+#include <reliaware/network/connection.hxx>
 
-using namespace reliaware;
+using namespace reliaware::network;

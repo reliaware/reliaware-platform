@@ -4,16 +4,16 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 //
-#ifndef RELIAWARE_EVENT_HXX
-#define RELIAWARE_EVENT_HXX
+#ifndef RELIAWARE_NETWORK_EVENT_HXX
+#define RELIAWARE_NETWORK_EVENT_HXX
 
 #pragma once
 
-namespace reliaware
+namespace reliaware::network
 {
     class event
     {
     };
 };
 
-#endif // !RELIAWARE_EVENT_HXX
+#endif // !RELIAWARE_NETWORK_EVENT_HXX

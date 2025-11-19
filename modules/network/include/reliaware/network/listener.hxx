@@ -4,14 +4,14 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 //
-#ifndef RELIAWARE_LISTENER_HXX
-#define RELIAWARE_LISTENER_HXX
+#ifndef RELIAWARE_NETWORK_LISTENER_HXX
+#define RELIAWARE_NETWORK_LISTENER_HXX
 
 #pragma once
 
-#include <reliaware/socket.hxx>
+#include <reliaware/network/socket.hxx>
 
-namespace reliaware
+namespace reliaware::network
 {
     class listener : protected socket
     {
@@ -27,4 +27,4 @@ namespace reliaware
     };
 };
 
-#endif // !RELIAWARE_LISTENER_HXX
+#endif // !RELIAWARE_NETWORK_LISTENER_HXX

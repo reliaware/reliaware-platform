@@ -4,16 +4,16 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 //
-#ifndef RELIAWARE_SERVER_HXX
-#define RELIAWARE_SERVER_HXX
+#ifndef RELIAWARE_NETWORK_SERVER_HXX
+#define RELIAWARE_NETWORK_SERVER_HXX
 
 #pragma once
 
-namespace reliaware
+namespace reliaware::network
 {
     class server
     {
     };
 };
 
-#endif // !RELIAWARE_SERVER_HXX
+#endif // !RELIAWARE_NETWORK_SERVER_HXX

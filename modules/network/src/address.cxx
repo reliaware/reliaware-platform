@@ -4,11 +4,11 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 //
-#include <reliaware/address.hxx>
+#include <reliaware/network/address.hxx>
 
 #include <stdexcept>
 
-using namespace reliaware;
+using namespace reliaware::network;
 
 local_address::local_address(const local_address& addr)
     : address_base(addr)

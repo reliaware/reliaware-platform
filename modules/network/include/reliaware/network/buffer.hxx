@@ -4,16 +4,16 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 //
-#ifndef RELIAWARE_BUFFER_HXX
-#define RELIAWARE_BUFFER_HXX
+#ifndef RELIAWARE_NETWORK_BUFFER_HXX
+#define RELIAWARE_NETWORK_BUFFER_HXX
 
 #pragma once
 
-namespace reliaware
+namespace reliaware::network
 {
     class buffer
     {
     };
 };
 
-#endif // !RELIAWARE_BUFFER_HXX
+#endif // !RELIAWARE_NETWORK_BUFFER_HXX

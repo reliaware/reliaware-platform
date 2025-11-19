@@ -4,14 +4,14 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 //
-#ifndef RELIAWARE_SOCKET_HXX
-#define RELIAWARE_SOCKET_HXX
+#ifndef RELIAWARE_NETWORK_SOCKET_HXX
+#define RELIAWARE_NETWORK_SOCKET_HXX
 
 #pragma once
 
-#include <reliaware/address.hxx>
+#include <reliaware/network/address.hxx>
 
-namespace reliaware
+namespace reliaware::network
 {
     class socket
     {
@@ -27,4 +27,4 @@ namespace reliaware
     };
 };
 
-#endif // !RELIAWARE_SOCKET_HXX
+#endif // !RELIAWARE_NETWORK_SOCKET_HXX

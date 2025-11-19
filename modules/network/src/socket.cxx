@@ -4,13 +4,13 @@
 //
 // SPDX-License-Identifier: BSD-3-Clause
 //
-#include <reliaware/socket.hxx>
+#include <reliaware/network/socket.hxx>
 
 #include <sys/socket.h>
 #include <unistd.h>
 #include <system_error>
 
-using namespace reliaware;
+using namespace reliaware::network;
 
 socket::socket(int domain, int type, int protocol)
     : m_fd(-1)
