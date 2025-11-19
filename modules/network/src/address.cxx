@@ -20,7 +20,9 @@ local_address::local_address(const std::string& path)
     if (path.length() > sizeof(m_value.sun_path) - 1)
         throw std::length_error("path");
 
+#ifdef __APPLE__
     m_value.sun_len    = sizeof(m_value);
+#endif
     m_value.sun_family = AF_LOCAL;
 
     path.copy(m_value.sun_path, sizeof(m_value.sun_path));
@@ -39,7 +41,9 @@ ipv4_address::ipv4_address(const ipv4_address& addr)
 ipv4_address::ipv4_address(in_addr_t addr, in_port_t port)
     : address_base()
 {
+#ifdef __APPLE__
     m_value.sin_len         = sizeof(m_value);
+#endif
     m_value.sin_family      = AF_INET;
     m_value.sin_addr.s_addr = htonl(addr);
     m_value.sin_port        = htons(port);
@@ -57,7 +61,9 @@ ipv6_address::ipv6_address(const ipv6_address& addr)
 
 ipv6_address::ipv6_address(in6_addr_t addr, in_port_t port)
 {
+#ifdef __APPLE__
     m_value.sin6_len    = sizeof(m_value);
+#endif
     m_value.sin6_family = AF_INET6;
     m_value.sin6_port   = htons(port);
 

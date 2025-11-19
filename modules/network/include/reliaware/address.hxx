@@ -9,15 +9,25 @@
 
 #pragma once
 
+/**
+ * TODO: move ifdefs into compat/
+ */
+
 #include <sys/socket.h>
 #include <sys/un.h>
 #include <netinet/in.h>
-
+#ifdef __linux__
+#   include <linux/in6.h>
+#endif
 #include <string>
 #include <cstring>
 
 namespace reliaware
 {
+#ifdef __linux__
+    using in6_addr_t = struct in6_addr;
+#endif
+
     class address
     {
     public:
