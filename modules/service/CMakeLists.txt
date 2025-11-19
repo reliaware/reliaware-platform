@@ -9,4 +9,5 @@ project(reliaware-modules-service)
 add_library(reliaware-service SHARED)
 target_include_directories(reliaware-service PUBLIC include)
 target_sources(reliaware-service PRIVATE
+    src/pidfile.cxx
     src/service.cxx)
