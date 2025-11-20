@@ -30,3 +30,8 @@ void socket::bind(const address& addr)
     if (::bind(m_fd, addr.value(), addr.length()) < 0)
         throw std::system_error(errno, std::generic_category());
 }
+
+socket::socket(int fd)
+    : m_fd(fd)
+{
+}

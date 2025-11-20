@@ -11,6 +11,8 @@
 
 #include <reliaware/network/socket.hxx>
 
+#include <optional>
+
 namespace reliaware::network
 {
     class listener : protected socket
@@ -24,6 +26,7 @@ namespace reliaware::network
         virtual ~listener();
 
         void listen(int backlog = SOMAXCONN);
+        std::optional<socket> accept(int flags = 0);
     };
 };
 

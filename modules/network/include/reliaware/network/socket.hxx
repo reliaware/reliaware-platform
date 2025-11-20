@@ -19,9 +19,12 @@ namespace reliaware::network
         int m_fd;
 
     public:
-        socket() = delete;
+        socket(int fd);
         socket(int domain, int type, int protocol);
         virtual ~socket();
+
+        socket(const socket&) = delete;
+        socket& operator=(const socket&) = delete;
 
         void bind(const address& addr);
     };

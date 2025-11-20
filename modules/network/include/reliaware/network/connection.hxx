@@ -16,6 +16,11 @@ namespace reliaware::network
 {
     class connection : protected socket
     {
+    public:
+        connection(const address& addr, int type, int protocol);
+        virtual ~connection();
+
+        void connect(const address& addr);
     };
 };
 
