@@ -39,7 +39,9 @@ void listener::listen(int backlog)
         throw std::system_error(errno, std::generic_category());
 }
 
-std::optional<reliaware::network::socket> listener::accept(int flags)
+// TODO: return std::optional?
+// TODO: return std::optional<connection>?
+reliaware::network::socket listener::accept(int flags)
 {
     int fd;
     struct sockaddr addr;
@@ -51,16 +53,11 @@ again:
         if (errno == EINTR)
             goto again;
 
-        if (errno == EAGAIN || errno == EWOULDBLOCK)
-            return std::nullopt;
+        // if (errno == EAGAIN || errno == EWOULDBLOCK)
+        //     return std::nullopt;
 
         throw std::system_error(errno, std::generic_category());
     }
 
-    // TODO:
-    // 1. Return an address somehow; maybe incapsulate in inside
-    //    the socket class?
-    // 2. Return connection?
-
-    return std::make_optional<reliaware::network::socket>(fd);
+    return socket::create(fd);
 }

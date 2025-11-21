@@ -12,6 +12,16 @@
 
 using namespace reliaware::network;
 
+socket::socket(int fd)
+    : m_fd(fd)
+{
+}
+
+reliaware::network::socket socket::create(int fd)
+{
+    return socket(fd);
+}
+
 socket::socket(int domain, int type, int protocol)
     : m_fd(-1)
 {
@@ -21,8 +31,7 @@ socket::socket(int domain, int type, int protocol)
 
 socket::~socket()
 {
-    if (m_fd != -1)
-        ::close(m_fd);
+    close();
 }
 
 void socket::bind(const address& addr)
@@ -31,7 +40,17 @@ void socket::bind(const address& addr)
         throw std::system_error(errno, std::generic_category());
 }
 
-socket::socket(int fd)
-    : m_fd(fd)
+void socket::close() noexcept
 {
+    if (m_fd != -1)
+    {
+        ::close(m_fd);
+        m_fd = -1;
+    }
 }
+
+bool socket::closed() const noexcept
+{
+    return m_fd == -1;
+}
+

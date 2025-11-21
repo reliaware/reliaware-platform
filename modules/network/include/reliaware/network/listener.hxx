@@ -26,7 +26,7 @@ namespace reliaware::network
         virtual ~listener();
 
         void listen(int backlog = SOMAXCONN);
-        std::optional<socket> accept(int flags = 0);
+        socket accept(int flags = 0);
     };
 };
 

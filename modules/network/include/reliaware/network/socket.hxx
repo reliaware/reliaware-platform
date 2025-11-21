@@ -18,15 +18,21 @@ namespace reliaware::network
     protected:
         int m_fd;
 
-    public:
+    protected:
         socket(int fd);
+        static socket create(int fd);
+
+    public:
         socket(int domain, int type, int protocol);
         virtual ~socket();
 
         socket(const socket&) = delete;
         socket& operator=(const socket&) = delete;
 
+        bool closed() const noexcept;
+
         void bind(const address& addr);
+        void close() noexcept;
     };
 };
 
