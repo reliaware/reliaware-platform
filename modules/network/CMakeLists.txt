@@ -14,4 +14,7 @@ target_sources(reliaware-network PRIVATE
     src/address.cxx
     src/socket.cxx
     src/listener.cxx
-    src/connection.cxx)
+    src/connection.cxx
+    src/local_domain.cxx
+    src/ipv4_domain.cxx
+    src/ipv6_domain.cxx)
