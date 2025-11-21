@@ -1,0 +1,26 @@
+---
+Language: Cpp
+
+ColumnLimit: 120
+
+IndentWidth: 4
+UseTab: Never
+NamespaceIndentation: All
+AccessModifierOffset: -4
+
+SeparateDefinitionBlocks: Always
+
+AlignConsecutiveAssignments: Consecutive
+
+BreakBeforeBraces: Allman
+AllowShortBlocksOnASingleLine: Never
+AllowShortFunctionsOnASingleLine: None
+AllowShortLoopsOnASingleLine: false
+AllowShortNamespacesOnASingleLine: false
+
+PackConstructorInitializers: Never
+
+PointerAlignment: Right
+ReferenceAlignment: Left
+QualifierAlignment: Left
+...
