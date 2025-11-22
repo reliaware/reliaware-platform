@@ -12,8 +12,7 @@
 namespace reliaware::network
 {
     class server
-    {
-    };
-};
+    { };
+}; // namespace reliaware::network
 
 #endif // !RELIAWARE_NETWORK_SERVER_HXX

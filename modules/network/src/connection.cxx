@@ -16,15 +16,15 @@ connection::connection(const address& addr, int type, int protocol)
 {
     try {
         bind(addr);
-    } catch (std::exception& e) {
+    }
+    catch (std::exception& e) {
         socket::~socket();
         throw e;
     }
 }
 
 connection::~connection()
-{
-}
+{ }
 
 void connection::connect(const address& addr)
 {

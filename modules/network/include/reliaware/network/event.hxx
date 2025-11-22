@@ -12,8 +12,7 @@
 namespace reliaware::network
 {
     class event
-    {
-    };
-};
+    { };
+}; // namespace reliaware::network
 
 #endif // !RELIAWARE_NETWORK_EVENT_HXX

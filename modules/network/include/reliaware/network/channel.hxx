@@ -14,8 +14,7 @@
 namespace reliaware::network
 {
     class channel : protected socket
-    {
-    };
-};
+    { };
+}; // namespace reliaware::network
 
 #endif // !RELIAWARE_NETWORK_CHANNEL_HXX

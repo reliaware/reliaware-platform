@@ -9,8 +9,8 @@
 
 #pragma once
 
-#include <reliaware/network/socket.hxx>
 #include <reliaware/network/buffer.hxx>
+#include <reliaware/network/socket.hxx>
 
 namespace reliaware::network
 {
@@ -22,6 +22,6 @@ namespace reliaware::network
 
         void connect(const address& addr);
     };
-};
+}; // namespace reliaware::network
 
 #endif // !RELIAWARE_CNETWORK_ONNECTION_HXX

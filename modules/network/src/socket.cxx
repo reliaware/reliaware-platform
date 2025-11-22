@@ -7,15 +7,14 @@
 #include <reliaware/network/socket.hxx>
 
 #include <sys/socket.h>
-#include <unistd.h>
 #include <system_error>
+#include <unistd.h>
 
 using namespace reliaware::network;
 
 socket::socket(int fd)
     : m_fd(fd)
-{
-}
+{ }
 
 reliaware::network::socket socket::create(int fd)
 {
@@ -42,8 +41,7 @@ void socket::bind(const address& addr)
 
 void socket::close() noexcept
 {
-    if (m_fd != -1)
-    {
+    if (m_fd != -1) {
         ::close(m_fd);
         m_fd = -1;
     }
@@ -53,4 +51,3 @@ bool socket::closed() const noexcept
 {
     return m_fd == -1;
 }
-

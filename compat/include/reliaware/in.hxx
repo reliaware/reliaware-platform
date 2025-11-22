@@ -12,7 +12,7 @@
 #include <netinet/in.h>
 
 #ifdef __linux__
-#   include <linux/in6.h>
+#    include <linux/in6.h>
 #endif
 
 #ifdef __linux__

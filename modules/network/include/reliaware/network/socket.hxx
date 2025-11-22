@@ -34,6 +34,6 @@ namespace reliaware::network
         void bind(const address& addr);
         void close() noexcept;
     };
-};
+}; // namespace reliaware::network
 
 #endif // !RELIAWARE_NETWORK_SOCKET_HXX

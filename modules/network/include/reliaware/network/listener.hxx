@@ -28,6 +28,6 @@ namespace reliaware::network
         void listen(int backlog = SOMAXCONN);
         socket accept(int flags = 0);
     };
-};
+}; // namespace reliaware::network
 
 #endif // !RELIAWARE_NETWORK_LISTENER_HXX

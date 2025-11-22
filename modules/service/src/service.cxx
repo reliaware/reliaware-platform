@@ -10,9 +10,7 @@ using namespace reliaware;
 
 service::service(const std::string& name)
     : m_name(name)
-{
-}
+{ }
 
 service::~service()
-{
-}
+{ }

@@ -22,6 +22,6 @@ namespace reliaware
         service(const std::string& name);
         virtual ~service();
     };
-};
+}; // namespace reliaware
 
 #endif // !RELIAWARE_SERVICE_HXX

@@ -12,8 +12,7 @@
 namespace reliaware
 {
     class pidfile
-    {
-    };
-};
+    { };
+}; // namespace reliaware
 
 #endif // !RELIAWARE_PIDFILE_HXX

@@ -22,6 +22,6 @@ namespace reliaware
         command(const std::string& name);
         virtual ~command();
     };
-};
+}; // namespace reliaware
 
 #endif // !RELIAWARE_COMMAND_HXX

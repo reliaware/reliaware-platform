@@ -10,9 +10,7 @@ using namespace reliaware;
 
 command::command(const std::string& name)
     : m_name(name)
-{
-}
+{ }
 
 command::~command()
-{
-}
+{ }

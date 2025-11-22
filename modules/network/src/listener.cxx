@@ -23,15 +23,15 @@ listener::listener(const address& addr, int type, int protocol)
 {
     try {
         bind(addr);
-    } catch (std::exception& e) {
+    }
+    catch (std::exception& e) {
         socket::~socket();
         throw e;
     }
 }
 
 listener::~listener()
-{
-}
+{ }
 
 void listener::listen(int backlog)
 {
@@ -48,8 +48,7 @@ reliaware::network::socket listener::accept(int flags)
     socklen_t addrlen;
 
 again:
-    if ((fd = ::accept4(m_fd, &addr, &addrlen, flags)) < 0)
-    {
+    if ((fd = ::accept4(m_fd, &addr, &addrlen, flags)) < 0) {
         if (errno == EINTR)
             goto again;
 

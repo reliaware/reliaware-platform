@@ -12,8 +12,7 @@
 namespace reliaware::network
 {
     class buffer
-    {
-    };
-};
+    { };
+}; // namespace reliaware::network
 
 #endif // !RELIAWARE_NETWORK_BUFFER_HXX

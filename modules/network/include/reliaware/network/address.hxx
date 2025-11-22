@@ -13,16 +13,16 @@
  * TODO: move ifdefs into compat/
  */
 
+#include <netinet/in.h>
 #include <sys/socket.h>
 #include <sys/un.h>
-#include <netinet/in.h>
 #ifdef __linux__
-#   include <linux/in6.h>
+#    include <linux/in6.h>
 #endif
 #include <arpa/inet.h>
 
-#include <string>
 #include <cstring>
+#include <string>
 
 namespace reliaware::network
 {
@@ -40,31 +40,36 @@ namespace reliaware::network
         virtual explicit operator std::string() const = 0;
     };
 
-    template<class TAddress>
+    template <class TAddress>
     class address_base : public address
     {
     protected:
         TAddress m_value;
 
     protected:
-        address_base() {
+        address_base()
+        {
             std::memset(&m_value, 0, sizeof(m_value));
         }
 
-        address_base(const TAddress *addr) {
+        address_base(const TAddress *addr)
+        {
             std::memcpy(&m_value, addr, sizeof(m_value));
         }
 
     public:
-        virtual int family() const {
+        virtual int family() const
+        {
             return value()->sa_family;
         }
 
-        virtual const sockaddr *value() const {
+        virtual const sockaddr *value() const
+        {
             return reinterpret_cast<const sockaddr *>(&m_value);
         }
 
-        virtual socklen_t length() const {
+        virtual socklen_t length() const
+        {
             return sizeof(m_value);
         }
     };
@@ -104,6 +109,6 @@ namespace reliaware::network
 
         virtual explicit operator std::string() const;
     };
-};
+}; // namespace reliaware::network
 
 #endif // !RELIAWARE_NETWORK_ADDRESS_HXX
