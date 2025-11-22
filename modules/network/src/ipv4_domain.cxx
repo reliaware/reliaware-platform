@@ -14,23 +14,21 @@ using namespace reliaware::network;
 
 ipv4_domain::ipv4_address::ipv4_address(const ipv4_address& addr)
     : address_base(addr)
-{
-}
+{ }
 
 ipv4_domain::ipv4_address::ipv4_address(in_addr_t addr, in_port_t port)
     : address_base()
 {
 #ifdef __APPLE__
-    m_value.sin_len         = sizeof(m_value);
+    m_value.sin_len = sizeof(m_value);
 #endif
     m_value.sin_addr.s_addr = htonl(addr);
-    m_value.sin_port        = htons(port);
+    m_value.sin_port = htons(port);
 }
 
 ipv4_domain::ipv4_address::ipv4_address(const sockaddr_in *addr)
     : address_base(addr)
-{
-}
+{ }
 
 ipv4_domain::ipv4_address::operator std::string() const
 {

@@ -14,23 +14,21 @@ using namespace reliaware::network;
 
 ipv6_domain::ipv6_address::ipv6_address(const ipv6_address& addr)
     : address_base(addr)
-{
-}
+{ }
 
 ipv6_domain::ipv6_address::ipv6_address(in6_addr_t addr, in_port_t port)
 {
 #ifdef __APPLE__
-    m_value.sin6_len    = sizeof(m_value);
+    m_value.sin6_len = sizeof(m_value);
 #endif
-    m_value.sin6_port   = htons(port);
+    m_value.sin6_port = htons(port);
 
     std::memcpy(&m_value.sin6_addr, &addr, sizeof(m_value.sin6_addr));
 }
 
 ipv6_domain::ipv6_address::ipv6_address(const sockaddr_in6 *addr)
     : address_base(addr)
-{
-}
+{ }
 
 ipv6_domain::ipv6_address::operator std::string() const
 {

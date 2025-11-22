@@ -14,8 +14,8 @@
 #include <sys/socket.h>
 #include <sys/un.h>
 
-#include <string>
 #include <cstring>
+#include <string>
 
 namespace reliaware::network
 {
@@ -37,6 +37,6 @@ namespace reliaware::network
         using address_t = local_address;
     };
 
-};
+}; // namespace reliaware::network
 
 #endif // !RELIAWARE_NETWORK_LOCAL_DOMAIN_HXX

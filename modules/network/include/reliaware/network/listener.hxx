@@ -11,12 +11,12 @@
 
 #include <reliaware/network/socket.hxx>
 
-#include <system_error>
 #include <optional>
+#include <system_error>
 
 namespace reliaware::network
 {
-    template<class TDomain>
+    template <class TDomain>
     class listener : protected socket<TDomain>
     {
     private:
@@ -34,7 +34,8 @@ namespace reliaware::network
         {
             try {
                 bind(addr);
-            } catch (std::exception& e) {
+            }
+            catch (std::exception& e) {
                 socket::~socket();
                 throw e;
             }
@@ -56,8 +57,7 @@ namespace reliaware::network
             socklen_t addrlen;
 
         again:
-            if ((fd = ::accept4(m_fd, &addr, &addrlen, flags)) < 0)
-            {
+            if ((fd = ::accept4(m_fd, &addr, &addrlen, flags)) < 0) {
                 if (errno == EINTR)
                     goto again;
 

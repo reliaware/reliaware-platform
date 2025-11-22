@@ -10,11 +10,9 @@
 
 using namespace reliaware::network;
 
-
 local_domain::local_address::local_address(const local_address& addr)
     : address_base(addr)
-{
-}
+{ }
 
 local_domain::local_address::local_address(const std::string& path)
 {
@@ -22,7 +20,7 @@ local_domain::local_address::local_address(const std::string& path)
         throw std::length_error("path");
 
 #ifdef __APPLE__
-    m_value.sun_len    = sizeof(m_value);
+    m_value.sun_len = sizeof(m_value);
 #endif
     m_value.sun_family = AF_LOCAL;
 
@@ -31,8 +29,7 @@ local_domain::local_address::local_address(const std::string& path)
 
 local_domain::local_address::local_address(const sockaddr_un *addr)
     : address_base(addr)
-{
-}
+{ }
 
 local_domain::local_address::operator std::string() const
 {
