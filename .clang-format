@@ -7,20 +7,42 @@ IndentWidth: 4
 UseTab: Never
 NamespaceIndentation: All
 AccessModifierOffset: -4
+IndentPPDirectives: AfterHash
 
 SeparateDefinitionBlocks: Always
 
-AlignConsecutiveAssignments: Consecutive
+BreakTemplateDeclarations: Yes
+BreakBeforeBraces: Custom
+BraceWrapping:
+    AfterClass: true
+    AfterStruct: true
+    AfterEnum: true
+    AfterUnion: true
+    AfterFunction: true
+    AfterNamespace: true
+    AfterControlStatement: MultiLine
+    BeforeCatch: true
+    BeforeElse: true
+    BeforeWhile: false
+    SplitEmptyFunction: false
+    SplitEmptyRecord: false
+    SplitEmptyNamespace: false
 
-BreakBeforeBraces: Allman
+SpaceInEmptyBlock: true
+Cpp11BracedListStyle: false
+
 AllowShortBlocksOnASingleLine: Never
 AllowShortFunctionsOnASingleLine: None
 AllowShortLoopsOnASingleLine: false
 AllowShortNamespacesOnASingleLine: false
+AllowShortEnumsOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: Never
 
 PackConstructorInitializers: Never
+BreakConstructorInitializers: BeforeComma
 
 PointerAlignment: Right
 ReferenceAlignment: Left
-QualifierAlignment: Left
+QualifierAlignment: Custom
+QualifierOrder: [friend, static, inline, volatile, restrict, constexpr, const, type]
 ...
