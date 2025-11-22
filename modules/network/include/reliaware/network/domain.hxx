@@ -10,6 +10,7 @@
 #pragma once
 
 #include <sys/socket.h>
+#include <bits/sockaddr.h>
 
 #include <string>
 #include <cstring>
@@ -19,10 +20,9 @@ namespace reliaware::network
     class domain
     {
     public:
-        // TODO: replace with sa_family_t
-        using address_family_t = int;
+        using address_family_t = sa_family_t;
 
-        virtual address_family_t address_family() const = 0;
+        static const address_family_t family = AF_UNSPEC;
 
         class address
         {
@@ -37,13 +37,11 @@ namespace reliaware::network
         using address_t = address;
     };
 
-    template<domain::address_family_t TAF_ID>
+    template<domain::address_family_t TAddressFamily>
     class domain_base : public domain
     {
     public:
-        virtual address_family_t address_family() const {
-            return TAF_ID;
-        }
+        static const address_family_t family = TAddressFamily;
 
         template<class TAddress>
         class address_base : public address
@@ -54,7 +52,7 @@ namespace reliaware::network
         protected:
             address_base() {
                 std::memset(&m_value, 0, sizeof(m_value));
-                value()->sa_family = TAF_ID;
+                reinterpret_cast<sockaddr *>(&m_value)->sa_family = TAddressFamily;
             }
 
             address_base(const TAddress *addr) {
@@ -74,8 +72,6 @@ namespace reliaware::network
                 return sizeof(m_value);
             }
         };
-
-        using address_t = address_base;
     };
 };
 
