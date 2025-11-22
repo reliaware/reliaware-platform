@@ -32,8 +32,6 @@ namespace reliaware::network
         class ipv6_address : public address_base<struct sockaddr_in6>
         {
         public:
-            ipv6_address() = delete;
-
             ipv6_address(const ipv6_address& addr);
             ipv6_address(in6_addr_t addr, in_port_t port);
             ipv6_address(const sockaddr_in6 *addr);
