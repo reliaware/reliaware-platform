@@ -65,7 +65,7 @@ namespace reliaware::network
 
         void close() noexcept
         {
-            if (!closed()) {
+            if (not closed()) {
                 ::close(m_fd);
                 m_fd = -1;
             }
