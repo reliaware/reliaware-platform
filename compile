@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if ! command -v cmake >/dev/null; then
+    echo "error: cmake not found" 1>&2
+    exit 1
+fi
+
+cmake --build ./build
