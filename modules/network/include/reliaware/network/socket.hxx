@@ -14,15 +14,14 @@
 #include <sys/socket.h>
 #include <unistd.h>
 
+#include <concepts>
 #include <system_error>
 
 namespace reliaware::network
 {
-    template <class TDomain>
+    template <std::derived_from<domain> TDomain>
     class socket
     {
-        static_assert(std::is_base_of_v<domain, TDomain>, "TDomain not derived from class domain");
-
     protected:
         int m_fd;
         // typename TDomain::address_t m_address;
