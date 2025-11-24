@@ -25,6 +25,8 @@ namespace reliaware::network
         class local_address : public address_base<struct sockaddr_un>
         {
         public:
+            local_address() = delete;
+
             local_address(const local_address& addr);
             local_address(const std::string& path);
             local_address(const sockaddr_un *addr);

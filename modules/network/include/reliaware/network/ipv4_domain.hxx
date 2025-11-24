@@ -25,6 +25,8 @@ namespace reliaware::network
         class ipv4_address : public address_base<struct sockaddr_in>
         {
         public:
+            ipv4_address() = delete;
+
             ipv4_address(const ipv4_address& addr);
             ipv4_address(in_addr_t addr, in_port_t port);
             ipv4_address(const sockaddr_in *addr);
