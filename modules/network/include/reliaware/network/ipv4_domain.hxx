@@ -11,11 +11,11 @@
 
 #include <reliaware/network/domain.hxx>
 
-#include <netinet/in.h>
 #include <sys/socket.h>
+#include <netinet/in.h>
 
-#include <cstring>
 #include <string>
+#include <cstring>
 
 namespace reliaware::network
 {
@@ -37,6 +37,6 @@ namespace reliaware::network
         using address_t = ipv4_address;
     };
 
-}; // namespace reliaware::network
+};
 
 #endif // !RELIAWARE_NETWORK_IPV4_DOMAIN_HXX

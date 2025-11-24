@@ -18,7 +18,7 @@
 
 namespace reliaware::network
 {
-    template <class TDomain>
+    template<class TDomain>
     class socket
     {
         static_assert(std::is_base_of_v<domain, TDomain>, "TDomain not derived from class domain");

@@ -11,14 +11,14 @@
 
 #include <reliaware/network/domain.hxx>
 
-#include <netinet/in.h>
 #include <sys/socket.h>
+#include <netinet/in.h>
 #ifdef __linux__
-#    include <linux/in6.h>
+#   include <linux/in6.h>
 #endif
 
-#include <cstring>
 #include <string>
+#include <cstring>
 
 namespace reliaware::network
 {
@@ -44,6 +44,6 @@ namespace reliaware::network
         using address_t = ipv6_address;
     };
 
-}; // namespace reliaware::network
+};
 
 #endif // !RELIAWARE_NETWORK_IPV6_DOMAIN_HXX

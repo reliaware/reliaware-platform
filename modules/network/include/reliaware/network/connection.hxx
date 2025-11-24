@@ -14,7 +14,7 @@
 
 namespace reliaware::network
 {
-    template <class TDomain>
+    template<class TDomain>
     class connection : protected socket<TDomain>
     {
     public:
@@ -23,8 +23,7 @@ namespace reliaware::network
         {
             try {
                 bind(addr);
-            }
-            catch (std::exception& e) {
+            } catch (std::exception& e) {
                 socket::~socket();
                 throw e;
             }
