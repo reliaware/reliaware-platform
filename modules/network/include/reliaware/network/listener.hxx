@@ -29,7 +29,7 @@ namespace reliaware::network
         }
 
     public:
-        listener(const TDomain::address_t& addr, int type, int protocol)
+        listener(const TDomain::address_t& addr, int type, int protocol);
             : socket(check_type(type), protocol)
         {
             try {
@@ -43,7 +43,7 @@ namespace reliaware::network
         virtual ~listener()
         { }
 
-        void listen(int backlog = SOMAXCONN)
+        void listen(int backlog = SOMAXCONN);
         {
             if (::listen(m_fd, backlog) < 0)
                 throw std::system_error(errno, std::generic_category());
