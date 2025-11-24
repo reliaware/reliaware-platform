@@ -22,7 +22,7 @@ namespace reliaware::network
     private:
         static int check_type(int type)
         {
-            if (type != SOCK_STREAM and type != SOCK_SEQPACKET)
+            if (type != SOCK_STREAM && type != SOCK_SEQPACKET)
                 throw std::invalid_argument("type");
 
             return type;
@@ -61,7 +61,7 @@ namespace reliaware::network
                 if (errno == EINTR)
                     goto again;
 
-                // if (errno == EAGAIN or errno == EWOULDBLOCK)
+                // if (errno == EAGAIN || errno == EWOULDBLOCK)
                 //     return std::nullopt;
 
                 throw std::system_error(errno, std::generic_category());
