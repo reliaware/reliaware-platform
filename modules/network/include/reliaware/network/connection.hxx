@@ -14,29 +14,13 @@
 
 namespace reliaware::network
 {
-    template<class TDomain>
-    class connection : protected socket<TDomain>
+    class connection : protected socket
     {
     public:
-        connection(const TDomain::address_t& addr, int type, int protocol)
-            : socket(type, protocol)
-        {
-            try {
-                bind(addr);
-            } catch (std::exception& e) {
-                socket::~socket();
-                throw e;
-            }
-        }
+        connection(const address& addr, int type, int protocol);
+        virtual ~connection();
 
-        virtual ~connection()
-        { }
-
-        void connect(const TDomain::address_t& addr)
-        {
-            if (::connect(m_fd, addr.value(), addr.length()) < 0)
-                throw std::system_error(errno, std::generic_category());
-        }
+        void connect(const address& addr);
     };
 }; // namespace reliaware::network
 
