@@ -20,7 +20,7 @@ namespace reliaware::network
     class domain
     {
     public:
-        static constexpr sa_family_t family = AF_UNSPEC;
+        static const sa_family_t family = AF_UNSPEC;
 
         class address
         {
@@ -39,7 +39,7 @@ namespace reliaware::network
     class domain_base : public domain
     {
     public:
-        static constexpr sa_family_t family = TAddressFamily;
+        static const sa_family_t family = TAddressFamily;
 
         template<class TAddress>
         class address_base : public address
