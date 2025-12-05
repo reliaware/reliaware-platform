@@ -15,12 +15,12 @@ namespace reliaware::coordination
 {
     enum class lock_mode
     {
-        NULL = 0,
-        CONCURRENT_READ,
-        CONCURRENT_WRITE,
-        PROTECTED_READ,
-        PROTECTED_WRITE,
-        EXCLUSIVE
+        NL = 0, // Null
+        CR,     // Concurrent read
+        CW,     // Concurrent write
+        PR,     // Protected read
+        PW,     // Protected write
+        EX      // Exclusive
     };
 
     constexpr bool is_mode_compatible(lock_mode current, lock_mode desired)
